@@ -78,22 +78,5 @@
   });
   go(0); auto();
 
-  // Subscribe form
-  // TODO: set FORM_ENDPOINT to a Formspree/Mailchimp URL. Until then it falls back to an email.
-  const FORM_ENDPOINT = '';
-  $('#sub').addEventListener('submit', async e => {
-    e.preventDefault();
-    const form = e.target, msg = $('#subMsg'), d = Object.fromEntries(new FormData(form));
-    if (!d.name || !/^\S+@\S+\.\S+$/.test(d.email || '')) { msg.textContent = 'Please enter your name and a valid email.'; return; }
-    try {
-      if (FORM_ENDPOINT) {
-        const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
-        if (!r.ok) throw 0;
-      } else {
-        location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Subscribe request')}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone || ''}`)}`;
-      }
-      msg.textContent = 'Thanks for subscribing!'; form.reset();
-    } catch { msg.textContent = 'Something went wrong. Please email us directly.'; }
-  });
 
 })();

@@ -166,3 +166,5 @@ figcaption{color:var(--muted);font-size:1rem}
 .bt i{font-style:normal;font-weight:800;font-size:1.02rem;letter-spacing:.04em;color:var(--navy)}
 .bt b{font-weight:500;font-size:.7rem;letter-spacing:.42em;color:var(--gold);margin:4px 0 0}
 .footer .bt i{color:#fff}.footer .bt b{color:var(--gold-l)}
+
+.subscribe{text-align:center}
